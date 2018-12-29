@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.rohit.enigmamachine.MainActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="71dp"
+        app:layout_constraintBottom_toTopOf="@+id/output"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <EditText
+        android:id="@+id/edittext"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="95dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="57dp"
+        android:hint="Edit text"
+        app:layout_constraintEnd_toStartOf="@+id/output"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerview"
+        android:layout_marginRight="95dp"
+        android:layout_marginLeft="16dp" />
+
+
+    <TextView
+        android:id="@+id/output"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="264dp"
+        android:layout_marginEnd="33dp"
+        android:text="Output"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edittext"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerview"
+        android:layout_marginRight="33dp" />
+
+
+</android.support.constraint.ConstraintLayout>
