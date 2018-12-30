@@ -40,7 +40,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             holder.textView.setText(keys.get(position));
 
             if(keyhighlight.size()>0) {
-                if (keys.get(position).charAt(0)== (keyhighlight.get(keyhighlight.size() - 1)).charAt(0)) {
+                if (Character.toUpperCase(keys.get(position).charAt(0))== (keyhighlight.get(keyhighlight.size() - 1)).charAt(0)) {
                     holder.textView.setTextColor(Color.BLACK);
                     holder.textView.setBackgroundColor(Color.RED);
                     Log.d("color key", "onBindViewHolder:working " + keyhighlight.get(keyhighlight.size() - 1));

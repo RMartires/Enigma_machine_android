@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecycleViewAdapter adapter;
     EditText editText;
+    char keypressed='a';
+    char keyenigma='a';
+    String output="";
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerview);
         editText = findViewById(R.id.edittext);
-
-
+        final TextView OutputTextView= findViewById(R.id.output);
 
         intrecycleview();
 
@@ -59,9 +62,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(charSequence.length()!=0) {
-                    Log.v("key", String.valueOf(charSequence.charAt(charSequence.length() - 1)));
-                    keyhighlight.add(String.valueOf(charSequence.charAt(charSequence.length()-1)));
+                    //key pressed
+                    keypressed=charSequence.charAt(charSequence.length() - 1);
+                    Log.v("keypressed", String.valueOf(keypressed));
+                    //key o/p from enigma
+                    keyenigma=Machine.rotorbox(keypressed);
+                    Log.v("keyenigma", String.valueOf(keyenigma));
+                    //high-light enigmakey
+                    keyhighlight.add(String.valueOf(keyenigma));
+                    output+=keyenigma;
+                    OutputTextView.setText(output);
                     adapter.notifyDataSetChanged();
+                    //normalise highlithedkey
+                    keyhighlight.remove(String.valueOf(keyenigma));
+                    adapter.notifyDataSetChanged();
+
+                    Machine.keycountcheck();
                 }
             }
 
